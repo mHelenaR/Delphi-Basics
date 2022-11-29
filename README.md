@@ -1,2 +1,3 @@
 # Delphi-Basics
-Exemplos de estruturação de código delphi
+Um pequeno portfólio com exemplos de estruturação de código delphi
+
