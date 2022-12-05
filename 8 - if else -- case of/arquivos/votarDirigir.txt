@@ -1,0 +1,15 @@
+O voto é obrigatório
+Pode dirigir
+
+O voto é obrigatório
+Pode dirigir
+O voto é opcional
+Pode dirigir
+
+O voto é obrigatório
+Pode dirigir
+O voto é opcional
+Pode dirigir
+Não pode votar
+Não pode dirigir
+

@@ -1,0 +1,12 @@
+O triangulo e isósceles
+Perimetro: 0
+Area: 0
+
+O triangulo e isósceles
+Perimetro: 0
+Area: 0
+
+O triangulo é escaleno
+Perimetro: 66
+Area: 241,5
+

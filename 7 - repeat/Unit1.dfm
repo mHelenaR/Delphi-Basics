@@ -1,0 +1,165 @@
+object Form1: TForm1
+  Left = 643
+  Top = 363
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Form1'
+  ClientHeight = 481
+  ClientWidth = 817
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object GroupBox1: TGroupBox
+    Left = 8
+    Top = 8
+    Width = 257
+    Height = 465
+    Caption = 'Lista '
+    TabOrder = 0
+    object MLista: TMemo
+      Left = 16
+      Top = 24
+      Width = 225
+      Height = 201
+      ScrollBars = ssBoth
+      TabOrder = 0
+    end
+    object Button1: TButton
+      Left = 16
+      Top = 240
+      Width = 225
+      Height = 25
+      Caption = 'String'
+      TabOrder = 1
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Left = 16
+      Top = 272
+      Width = 225
+      Height = 25
+      Caption = 'Aluno Notas'
+      TabOrder = 2
+      OnClick = Button2Click
+    end
+    object Button3: TButton
+      Left = 16
+      Top = 304
+      Width = 225
+      Height = 25
+      Caption = 'Inteiros'
+      TabOrder = 3
+      OnClick = Button3Click
+    end
+    object Button4: TButton
+      Left = 16
+      Top = 336
+      Width = 225
+      Height = 25
+      Caption = 'Decimais'
+      TabOrder = 4
+      OnClick = Button4Click
+    end
+    object Button11: TButton
+      Left = 72
+      Top = 384
+      Width = 75
+      Height = 25
+      Caption = 'Button11'
+      TabOrder = 5
+      OnClick = Button11Click
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 280
+    Top = 8
+    Width = 257
+    Height = 465
+    Caption = 'Array'
+    TabOrder = 1
+    object Arrays: TMemo
+      Left = 16
+      Top = 24
+      Width = 225
+      Height = 201
+      ScrollBars = ssBoth
+      TabOrder = 0
+    end
+    object Button5: TButton
+      Left = 16
+      Top = 240
+      Width = 225
+      Height = 25
+      Caption = 'String - Est'#225'tico'
+      TabOrder = 1
+      OnClick = Button5Click
+    end
+    object Button7: TButton
+      Left = 16
+      Top = 272
+      Width = 225
+      Height = 25
+      Caption = 'IncDec inteiros - Din'#226'mico'
+      TabOrder = 2
+      OnClick = Button7Click
+    end
+    object Button10: TButton
+      Left = 16
+      Top = 304
+      Width = 225
+      Height = 25
+      Caption = 'crescente e decrescente'
+      TabOrder = 3
+      OnClick = Button10Click
+    end
+  end
+  object GroupBox3: TGroupBox
+    Left = 552
+    Top = 8
+    Width = 257
+    Height = 465
+    Caption = 'Record '
+    TabOrder = 2
+    object Records: TMemo
+      Left = 16
+      Top = 24
+      Width = 225
+      Height = 201
+      ScrollBars = ssBoth
+      TabOrder = 0
+    end
+    object Button6: TButton
+      Left = 16
+      Top = 240
+      Width = 225
+      Height = 25
+      Caption = 'Salarios'
+      TabOrder = 1
+      OnClick = Button6Click
+    end
+    object Button8: TButton
+      Left = 16
+      Top = 272
+      Width = 225
+      Height = 25
+      Caption = 'Cadastro Cliente'
+      TabOrder = 2
+      OnClick = Button8Click
+    end
+    object Button9: TButton
+      Left = 16
+      Top = 304
+      Width = 225
+      Height = 25
+      Caption = 'Verifica Aluno'
+      TabOrder = 3
+      OnClick = Button9Click
+    end
+  end
+end

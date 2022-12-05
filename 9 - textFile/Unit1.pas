@@ -1,0 +1,55 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    Memo1: TMemo;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  arquivo: TextFile;
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  AssignFile(arquivo,'C:\TesteArquivo.txt');
+  if not FileExists('C:\TesteArquivo.txt')then begin
+    Rewrite(arquivo);
+  end else begin
+    Append(arquivo);
+  end;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var texto: string;
+begin
+
+  Write(arquivo,'novo');
+
+
+
+   while not Eof(arquivo) do
+ begin
+   ReadLn(arquivo, texto);
+    Memo1.Lines.Add(texto);
+
+ end;
+end;
+
+end.
