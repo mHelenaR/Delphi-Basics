@@ -1,0 +1,28 @@
+unit Unit_CLiente;
+
+interface
+type
+
+   TCLient = class;
+   {Classe TCliente: ID, Nome, Sexo, CPF, RG, Telefone, Endereco, Bairro, Cidade, CEP.}
+
+   private
+   protected
+
+   public
+    property Id :string;
+    property Nome:String;
+    property Sexo:String;
+    property CPF:string;
+    property RG:string;
+    property Telefone:string;
+    property Endereco:string;
+    property Bairro:String;
+    property Cidade:String;
+    property CEP :String;
+
+   published
+   end;
+implementation
+
+end.

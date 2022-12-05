@@ -1,0 +1,163 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    idade: TEdit;
+    Memo: TMemo;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject); //1. Criando e add texto em um arquivo TextFile.  ;
+var
+ MeuArquivoTexto : TextFile; //TEXTFILE - CRIANDO E ESCREVENDO UM ARQUIVO TXT
+begin
+  AssignFile(MeuArquivoTexto, 'C:\Teste.txt');  //AssignFile - Esta instrução vai criar um arquivo na mémoria e vai referenciar um local fisico.
+  ReWrite(MeuArquivoTexto);                     //ReWrite - Cria o arquivo físico e abre para escrita, porém, caso o arquivo já exista, esta instrução apaga o arquivo para criá-lo novamente.
+  WriteLn(MeuArquivoTexto, 'Hello');            //WriteLn - Add texto qualquer.
+  WriteLn(MeuArquivoTexto, 'World');            //WriteLn - Add texto qualquer.
+  CloseFile(MeuArquivoTexto);                   //CloseFile - Fecha o arquivo texto aberto na memória/físico.
+end;
+
+
+
+
+
+procedure TForm1.Button2Click(Sender: TObject); //2. Reabrindo o arquivo e add mais texto em um arquivo TextFile.
+var
+  MeuArquivoTexto : TextFile; //TEXTFILE - ABRINDO E ADD TEXTOS EM UM ARQUIVO TXT
+begin
+ if not FileExists('C:\Teste.txt') then begin
+   Showmessage('Arquivo não localizado! Sorry!');
+   Exit;
+ end;
+
+ AssignFile(MeuArquivoTexto, 'C:\Teste.txt');             //AssignFile - Esta instrução vai criar um arquivo na mémoria e vai referenciar um local fisico.
+ Append(MeuArquivoTexto);                                 //Append -  Abre um arquivo texto existente para implementar (dados adicionais).
+ WriteLn(MeuArquivoTexto, 'Mais um texto adicionado!');   //WriteLn - Add texto qualquer.
+
+ CloseFile(MeuArquivoTexto);                              //CloseFile - Fecha o arquivo texto aberto na memória.
+
+end;
+
+
+
+procedure TForm1.Button3Click(Sender: TObject); //3. Reabrindo o arquivo e lendo as informaçõs (textos) em um arquivo TextFile.
+var MeuArquivoTexto:TextFile;
+   LinhaTexto:String;
+begin
+ if not FileExists('C:\Teste.txt') then begin
+   Showmessage('Arquivo não localizado! Sorry!');
+   Exit;
+ end;
+
+
+
+ AssignFile(MeuArquivoTexto, 'C:\Teste.txt');      //AssignFile - Esta instrução vai criar um arquivo na mémoria e vai referenciar um local fisico.
+ FileMode := fmOpenRead;                           //Variável FileMode define o modo no qual o procedimento Reset abre um arquivo
+                                                   //fmOpenRead         = 0 = Read only
+                                                   //fmOpenWrite         = 1 = Write only
+                                                   //fmOpenReadWrite     = 2 = Read and write (default)
+ Reset(MeuArquivoTexto);                           //procedimento Reset abre um arquivo para acesso de leitura, gravação ou leitura e gravação.
+
+ while not Eof(MeuArquivoTexto) do                // While normal varrendo e mostrando o conteúdo de cada linha
+ begin
+   ReadLn(MeuArquivoTexto, LinhaTexto);
+   ShowMessage(LinhaTexto);
+ end;
+
+
+ CloseFile(MeuArquivoTexto);
+
+end;
+
+
+
+procedure TForm1.Button4Click(Sender: TObject);
+var  MinhaLista: TStringList;
+begin
+ MinhaLista := TStringList.Create;         //Crio.
+ MinhaLista.LoadFromFile('C:\Teste.txt');  //Carrego.
+ ShowMessage(MinhaLista[1]);               //Exemplo simples de ler/mostrar uma determinada linha. Poderia usar While ou For etc.
+                                           //Observação: Nesse caso estou lendo linha do índice ou posição ou endereço '1'
+                                           //(ou seja, a segunda linha, pois lembre-se que a estrutura seu índice começa com 0)
+ FreeAndNil(MinhaLista);                   //Libero.
+end;
+
+
+
+procedure TForm1.Button5Click(Sender: TObject);
+var i, idades: Integer;
+    arquivo: TextFile;
+    texto: string;
+begin
+  idades:= StrToInt(idade.Text);
+ // AssignFile(arquivo, 'C:\Teste.txt');
+  AssignFile(arquivo, 'C:\Teste.txt');
+ // ReWrite(arquivo);
+  Append(arquivo);
+
+  if not FileExists('C:\Teste.txt') then begin
+    Showmessage('Arquivo não localizado');
+    Exit;
+  end;
+
+  //ReWrite(arquivo);
+
+  if(idades<16)then begin
+    Memo.Lines.Add('Não pode votar');
+    Memo.Lines.Add('Não pode dirigir');
+  end else if(idades>=16) and (idades<18)then begin
+    Memo.Lines.Add('Pode votar');
+    Memo.Lines.Add('Não pode dirigir');
+  end else if(idades>=18) and (idades<=70)then begin
+    Memo.Lines.Add('O voto é obrigatório');
+    Memo.Lines.Add('Pode dirigir');
+  end else if(idades>70)then begin
+    Memo.Lines.Add('O voto é opcional');
+    Memo.Lines.Add('Pode dirigir');
+  end else begin
+    ShowMessage('Condição inválida');
+  end;
+
+  for i:=0 to Memo.Lines.Count  do begin
+    texto:= Memo.Lines.Strings[i];
+    //WriteLn(arquivo, texto);
+    WriteLn(arquivo, texto);
+  end;
+
+
+
+  {AssignFile(arquivo, 'C:\Teste.txt');
+  ReWrite(arquivo); }
+  CloseFile(arquivo);
+end;
+
+end.
+
+
