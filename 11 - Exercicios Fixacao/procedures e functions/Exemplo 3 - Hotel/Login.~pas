@@ -1,0 +1,32 @@
+unit Login;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  TFrmLogin = class(TForm)
+    procedure FormActivate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmLogin: TFrmLogin;
+
+implementation
+
+uses Cadastro;
+
+{$R *.dfm}
+
+procedure TFrmLogin.FormActivate(Sender: TObject);
+begin
+FrmCadastro.Close;
+end;
+
+end.

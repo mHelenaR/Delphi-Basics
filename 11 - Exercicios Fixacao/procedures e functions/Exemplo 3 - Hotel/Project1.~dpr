@@ -1,0 +1,17 @@
+program Project1;
+
+uses
+  Forms,
+  Unit1 in 'Unit1.pas' {FrmPrincipal},
+  Cadastro in 'Cadastro.pas' {FrmCadastro},
+  Login in 'Login.pas' {FrmLogin};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFrmCadastro, FrmCadastro);
+  Application.CreateForm(TFrmPrincipal, FrmPrincipal);
+  Application.CreateForm(TFrmLogin, FrmLogin);
+  Application.Run;
+end.
