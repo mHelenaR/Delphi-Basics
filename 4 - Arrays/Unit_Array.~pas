@@ -1,0 +1,625 @@
+unit Unit_Array;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, SqlFun;
+
+type
+  TForm1 = class(TForm)
+    Btn_EstSimInteger: TButton;
+    Label1: TLabel;
+    Btn_StrlArrInteger: TButton;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Btn_EstSimString: TButton;
+    Btn_EstSimDouble: TButton;
+    Btn_EstSimBool: TButton;
+    Btn_EstSimCurr: TButton;
+    Btn_EstMatInteger: TButton;
+    Btn_EstMatString: TButton;
+    Btn_EstMatDouble: TButton;
+    Btn_EstMatBool: TButton;
+    Btn_EstMatCurr: TButton;
+    Btn_DinSimInteger: TButton;
+    Btn_DinSimString: TButton;
+    Btn_DinMatString: TButton;
+    Btn_DinMatCurr: TButton;
+    Label5: TLabel;
+    Btn_Exer1: TButton;
+    Btn_Exer2: TButton;
+    Btn_Exer3: TButton;
+    Btn_Exer4: TButton;
+    procedure Btn_EstSimIntegerClick(Sender: TObject);
+    procedure Btn_EstSimStringClick(Sender: TObject);
+    procedure Btn_EstSimDoubleClick(Sender: TObject);
+    procedure Btn_EstSimBoolClick(Sender: TObject);
+    procedure Btn_EstSimCurrClick(Sender: TObject);
+    procedure Btn_EstMatIntegerClick(Sender: TObject);
+    procedure Btn_EstMatStringClick(Sender: TObject);
+    procedure Btn_EstMatDoubleClick(Sender: TObject);
+    procedure Btn_EstMatBoolClick(Sender: TObject);
+    procedure Btn_EstMatCurrClick(Sender: TObject);
+    procedure Btn_DinSimIntegerClick(Sender: TObject);
+    procedure Btn_DinSimStringClick(Sender: TObject);
+    procedure Btn_DinMatStringClick(Sender: TObject);
+    procedure Btn_DinMatCurrClick(Sender: TObject);
+    procedure Btn_Exer1Click(Sender: TObject);
+    procedure Btn_Exer2Click(Sender: TObject);
+    procedure Btn_Exer3Click(Sender: TObject);
+    procedure Btn_Exer4Click(Sender: TObject);
+    procedure Btn_StrlArrIntegerClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ Estáticos Simples }
+procedure TForm1.Btn_EstSimIntegerClick(Sender: TObject);
+var Array_Numeros : Array[0..7] of Integer;
+begin
+  Array_Numeros[0]:=1;
+  Array_Numeros[1]:=2;
+  Array_Numeros[2]:=3;
+  Array_Numeros[3]:=4;
+  Array_Numeros[4]:=5;
+  Array_Numeros[5]:=6;
+  Array_Numeros[6]:=7;
+
+  ShowMessage('Array de Integer: ' + #13
+            + IntToStr(Array_Numeros[0]) + #13
+            + IntToStr(Array_Numeros[1]) + #13
+            + IntToStr(Array_Numeros[2]) + #13
+            + IntToStr(Array_Numeros[3]) + #13
+            + IntToStr(Array_Numeros[4]) + #13
+            + IntToStr(Array_Numeros[5]) + #13
+            + IntToStr(Array_Numeros[6]) + #13);
+end;
+
+procedure TForm1.Btn_EstSimStringClick(Sender: TObject);
+var Array_Strings : Array[0..5] of String;
+begin
+  Array_Strings[0]:='Lasanha';
+  Array_Strings[1]:='Coxinha';
+  Array_Strings[2]:='Alface';
+  Array_Strings[3]:='Arroz';
+  Array_Strings[4]:='Feijão';
+
+  ShowMessage('Array de Strings: ' + #13
+            + Array_Strings[0] + #13
+            + Array_Strings[1] + #13
+            + Array_Strings[2] + #13
+            + Array_Strings[3] + #13
+            + Array_Strings[4]);
+end;
+
+procedure TForm1.Btn_EstSimDoubleClick(Sender: TObject);
+var Array_Double : Array[0..10] of Double;
+begin
+  Array_Double[0]:=45.5;
+  Array_Double[1]:=78.98;
+  Array_Double[2]:=1.89;
+  Array_Double[3]:=37.4;
+  Array_Double[4]:=2144.7;
+  Array_Double[5]:=875.89;
+  Array_Double[6]:=9845.5;
+  Array_Double[7]:=014.48;
+  Array_Double[8]:=654.8;
+  Array_Double[9]:=98.4548;
+
+  ShowMessage('Array de Double: ' + #13
+            + FloatToStr(Array_Double[0]) + #13
+            + FloatToStr(Array_Double[1]) + #13
+            + FloatToStr(Array_Double[2]) + #13
+            + FloatToStr(Array_Double[3]) + #13
+            + FloatToStr(Array_Double[4]) + #13
+            + FloatToStr(Array_Double[5]) + #13
+            + FloatToStr(Array_Double[6]) + #13
+            + FloatToStr(Array_Double[7]) + #13
+            + FloatToStr(Array_Double[8]) + #13
+            + FloatToStr(Array_Double[9]) + #13);
+end;
+
+procedure TForm1.Btn_EstSimBoolClick(Sender: TObject);
+var Array_Bool : Array[0..4] of Boolean;
+begin
+  Array_Bool[0]:=True;
+  Array_Bool[1]:=False;
+  Array_Bool[2]:=False;
+  Array_Bool[3]:=True;
+
+  ShowMessage('Array de Booleanos: ' + #13
+            + BoolToStr(Array_Bool[0]) + #13
+            + BoolToStr(Array_Bool[1]) + #13
+            + BoolToStr(Array_Bool[2]) + #13
+            + BoolToStr(Array_Bool[4]) + #13);
+end;
+
+procedure TForm1.Btn_EstSimCurrClick(Sender: TObject);
+var Array_Currency : Array[0..3] of Currency;
+begin
+  Array_Currency[0]:=12.548;
+  Array_Currency[1]:=12.58;
+  Array_Currency[2]:=459.89;
+
+  ShowMessage('Array de Currency: ' + #13
+            + CurrToStr(Array_Currency[0]) + #13
+            + CurrToStr(Array_Currency[1]) + #13
+            + CurrToStr(Array_Currency[2]));
+end;
+
+{ Estático Matriz
+  LINHAS - COLUNAS }
+procedure TForm1.Btn_EstMatIntegerClick(Sender: TObject);
+var Array_Integer : Array[0..2,0..3] of Integer;
+begin
+  Array_Integer[0,0]:=1;
+  Array_Integer[0,1]:=3;
+  Array_Integer[0,2]:=7;
+  Array_Integer[0,3]:=2;
+  Array_Integer[1,0]:=5;
+  Array_Integer[1,1]:=9;
+  Array_Integer[1,2]:=4;
+  Array_Integer[1,3]:=0;
+
+  ShowMessage('Matriz Integer: ' + #13
+            + IntToStr(Array_Integer[0,0])+'  '+IntToStr(Array_Integer[0,1])+'  '+IntToStr(Array_Integer[0,2])+'  '+IntToStr(Array_Integer[0,3]) + #13
+            + IntToStr(Array_Integer[1,0])+'  '+IntToStr(Array_Integer[1,1])+'  '+IntToStr(Array_Integer[1,2])+'  '+IntToStr(Array_Integer[1,3]));
+end;
+
+procedure TForm1.Btn_EstMatStringClick(Sender: TObject);
+var Array_String : Array[0..4,0..1] of String;
+begin
+  Array_String[0,0]:='A';
+  Array_String[0,1]:='B';
+  Array_String[1,0]:='C';
+  Array_String[1,1]:='D';
+  Array_String[2,0]:='E';
+  Array_String[2,1]:='F';
+  Array_String[3,0]:='G';
+  Array_String[3,1]:='H';
+  Array_String[4,0]:='I';
+  Array_String[4,1]:='J';
+
+  ShowMessage('Matriz de Strings: ' + #13
+            + Array_String[0,0]+'   '+Array_String[0,1] + #13
+            + Array_String[1,0]+'   '+Array_String[1,1] + #13
+            + Array_String[2,0]+'   '+Array_String[2,1] + #13
+            + Array_String[3,0]+'   '+Array_String[3,1] + #13
+            + Array_String[4,0]+'     '+Array_String[4,1]);
+end;
+
+procedure TForm1.Btn_EstMatDoubleClick(Sender: TObject);
+var Array_Double : Array[0..2,0..2] of Double;
+begin
+  Array_Double[0,0]:=1.879;
+  Array_Double[0,1]:=78.4;
+  Array_Double[0,2]:=4.97;
+  Array_Double[1,0]:=55.89;
+  Array_Double[1,1]:=65.789;
+  Array_Double[1,2]:=87.9;
+
+  ShowMessage('Matriz de Double: ' + #13
+            + FloatToStr(Array_Double[0,0])+'   '+FloatToStr(Array_Double[0,1])+'       '+FloatToStr(Array_Double[0,2]) + #13
+            + FloatToStr(Array_Double[1,0])+'   '+FloatToStr(Array_Double[1,1])+'   '+FloatToStr(Array_Double[1,2]));
+end;
+
+procedure TForm1.Btn_EstMatBoolClick(Sender: TObject);
+var Array_Bool : Array[0..1,0..1] of Boolean;
+begin
+  Array_Bool[0,0]:=true;
+  Array_Bool[0,1]:=true;
+  Array_Bool[1,0]:=false;
+  Array_Bool[1,1]:=true;
+
+  ShowMessage('Matriz Bool: ' + #13
+            + BoolToStr(Array_Bool[0,0])+'  '+BoolToStr(Array_Bool[0,1]) + #13
+            + BoolToStr(Array_Bool[1,0])+'    '+BoolToStr(Array_Bool[1,1]));
+end;
+
+procedure TForm1.Btn_EstMatCurrClick(Sender: TObject);
+var Array_Currency : Array[0..1,0..3] of Currency;
+begin
+  Array_Currency[0,0]:=45.789;
+  Array_Currency[0,1]:=12.567;
+  Array_Currency[0,2]:=32.789;
+  Array_Currency[0,3]:=78.425;
+  Array_Currency[1,0]:=23.785;
+  Array_Currency[1,1]:=42.758;
+  Array_Currency[1,2]:=32.457;
+  Array_Currency[1,3]:=87.456;
+
+  ShowMessage('Matriz Currency: ' + #13
+            + CurrToStr(Array_Currency[0,0])+'  '+CurrToStr(Array_Currency[0,1])+'  '+CurrToStr(Array_Currency[0,2])+'  '+CurrToStr(Array_Currency[0,3]) + #13
+            + CurrToStr(Array_Currency[1,0])+'  '+CurrToStr(Array_Currency[1,1])+'  '+CurrToStr(Array_Currency[1,2])+'  '+CurrToStr(Array_Currency[1,3]));
+end;
+
+{ Arrays Dinâmicos Simples }
+procedure TForm1.Btn_DinSimIntegerClick(Sender: TObject);
+var Array_Integer : Array of Integer;
+begin
+  SetLength(Array_Integer,3);   //Essa fuñção pode definir o tamanho do Array, pode ser alterada varias vezes durante execução
+  Array_Integer[0]:=1;
+  Array_Integer[1]:=2;
+  Array_Integer[2]:=3;
+  ShowMessage('Array de Integer: ' + #13
+            + IntToStr(Array_Integer[0]) + #13
+            + IntToStr(Array_Integer[1]) + #13
+            + IntToStr(Array_Integer[2]) + #13#13
+            + 'Tamanho atual: ' + IntToStr(Length(Array_Integer)));
+
+  SetLength(Array_Integer,9);
+  ShowMessage('Novo tamanho do array: ' + IntToStr(Length(Array_Integer)));
+end;
+
+procedure TForm1.Btn_DinSimStringClick(Sender: TObject);
+var Array_String : Array of String;
+begin
+  SetLength(Array_String,4);
+  Array_String[0]:='Banana';
+  Array_String[1]:='Morango';
+  Array_String[2]:='Cereja';
+  Array_String[3]:='Pêra';
+  ShowMessage('Array de String: ' + #13
+            + Array_String[0] + #13
+            + Array_String[1] + #13
+            + Array_String[3] + #13#13
+            + 'Tamanho do Array: ' + IntToStr(Length(Array_String)));
+end;
+
+procedure TForm1.Btn_DinMatStringClick(Sender: TObject);
+var Array_String : Array of Array of String;   //Array of Array para criar matrizes
+begin
+  SetLength(Array_String,3,3); // Define o tamanho das dimensões da matriz
+  Array_String[0,0]:='A';
+  Array_String[0,1]:='B';
+  Array_String[0,2]:='C';
+  Array_String[1,0]:='D';
+  Array_String[1,1]:='E';
+  Array_String[1,2]:='F';
+  Array_String[2,0]:='G';
+  Array_String[2,1]:='H';
+  Array_String[2,2]:='I';
+  ShowMessage('Array Matriz String: ' + #13
+            + Array_String[0,0]+'   '+Array_String[0,1]+'   '+Array_String[0,2] + #13
+            + Array_String[1,0]+'   '+Array_String[1,1]+'   '+Array_String[1,2] + #13
+            + Array_String[2,0]+'   '+Array_String[2,1]+'   '+Array_String[2,2] + #13
+            + 'Tamanho da matriz: ' + IntToStr(Length(Array_String)));
+
+end;
+
+procedure TForm1.Btn_DinMatCurrClick(Sender: TObject);
+var Array_Currency : Array of Array of Currency;
+    i,j : Integer;
+begin
+  SetLength(Array_Currency,2);  // Cria a dimensão principal
+
+  SetLength(Array_Currency[0],2);  // Cada posição recebe um limite
+  SetLength(Array_Currency[1],2);
+
+  for i := 0 to High(Array_Currency) do begin
+    for j := 0 to High(Array_Currency[i]) do
+    begin
+      Array_Currency[i,j] := ((5.8  + i )* j)*50;
+      ShowMessage('Array_Currency['+intToStr(i)+','+intToStr(j)+'] = '+ CurrToStr(Array_Currency[i,j]) );
+    end;
+  end;
+end;
+
+{ Exercícios }
+
+{ 1 - Fazer um Array estatico simples que armazena 5 frutas (tipo strings),
+      alimentar o mesmo com dados e depois exibir o dado, e uma mensagem
+      também com o tamanho desse array; }
+procedure TForm1.Btn_Exer1Click(Sender: TObject);
+var Frutas_Simples :  Array[0..4] of String;
+begin
+  Frutas_Simples[0]:='Banana';
+  Frutas_Simples[1]:='Maçã';
+  Frutas_Simples[2]:='Abacate';
+  Frutas_Simples[3]:='Jabuticaba';
+  Frutas_Simples[4]:='Mamão';
+
+  ShowMessage('Array Simples: ' + #13
+            + Frutas_Simples[0] + #13
+            + Frutas_Simples[1] + #13
+            + Frutas_Simples[2] + #13
+            + Frutas_Simples[3] + #13
+            + Frutas_Simples[4] + #13#13
+            + 'Tamanho do Array: ' + IntToStr(Length(Frutas_Simples)));
+end;
+
+
+{ 2 - Fazer um Array estatico simples que armazena 3 notas (tipo double),
+      alimentar e apresentar através de mensagem o dado e uma mensagem
+      também com o tamanho desse array; }
+procedure TForm1.Btn_Exer2Click(Sender: TObject);
+var Notas : Array[0..2] of Double;
+begin
+  Notas[0]:=85.0;
+  Notas[1]:=75.8;
+  Notas[2]:=70.4;
+
+  ShowMessage('Notas: ' + #13
+            + '1 - ' + FloatToStr(Notas[0]) + #13
+            + '2 - ' + FloatToStr(Notas[1]) + #13
+            + '3 - ' + FloatToStr(Notas[2]) + #13
+            + 'Tamanho do Array: ' + IntToStr(Length(Notas)));
+end;
+
+{ 3 - Fazer um Array dinâmico simples que armazena 3 idades (tipo integer)
+      alimentar com dados e depois exibir os dados e uma mensagem
+      também com o tamanho do seu array; }
+procedure TForm1.Btn_Exer3Click(Sender: TObject);
+var Idade : Array of Integer;
+begin
+  SetLength(Idade,3);
+
+  Idade[0]:=10;
+  Idade[1]:=54;
+  Idade[2]:=26;
+
+  ShowMessage('Array de Idades: ' + #13
+            + IntToStr(Idade[0]) + #13
+            + IntToStr(Idade[1]) + #13
+            + IntToStr(Idade[2]) + #13
+            + 'Tamanho do Array: ' + IntToStr(Length(Idade)));
+end;
+
+{ 4 - Fazer um array estatico matriz que armazena 3x3 dados sendo cada
+      coluna com linha de 2 posições (nome e sobrenome), alimentar todo
+      o array manulamente e depois exibir esses dados nome e sobrenome. }
+procedure TForm1.Btn_Exer4Click(Sender: TObject);
+var Pessoa : Array[0..2,0..2] of String;
+begin
+  Pessoa[0,0]:='1';
+  Pessoa[1,0]:='Paula';
+  Pessoa[2,0]:='Castillo';
+
+  Pessoa[0,1]:='2';
+  Pessoa[1,1]:='Carlos';
+  Pessoa[2,1]:='Almeida';
+
+  Pessoa[0,2]:='3';
+  Pessoa[1,2]:='Jaque';
+  Pessoa[2,2]:='Oliveira';
+
+  ShowMessage('Matriz de dados: ' + #13
+            + Pessoa[0,0] + ' | ' + Pessoa[0,1] + ' | ' + Pessoa[0,2] + #13
+            + Pessoa[1,0] + ' | ' + Pessoa[1,1] + ' | ' + Pessoa[1,2] + #13
+            + Pessoa[2,0] + ' | ' + Pessoa[2,1] + ' | ' + Pessoa[2,2]);
+end;
+
+procedure TForm1.Btn_StrlArrIntegerClick(Sender: TObject);
+var Lista_Aluno, Lista_Principal, Lista_Notas, Lista_Separada, Lista_Dados: TStringList;
+    Turma_Aluno: String;
+    Idade_Aluno, AnoNasc_Aluno: Integer;
+    Notas_Aluno: Array of Double;
+    Media_Aluno: Double;
+    Data_Hoje: TDateTime;
+begin
+  // Criando as listas na memória
+  Lista_Principal:= TStringList.Create;
+  Lista_Separada:= TStringList.Create;
+  Lista_Aluno:= TStringList.Create;
+  Lista_Notas:= TStringList.Create;
+  Lista_Dados:= TStringList.Create;
+
+  //criando mapa de dados
+  Lista_Principal.Add('Ana=Turma=A^Idade=13^Notas=78.6;84;70|'
+                    + 'Carla=Turma=C^Idade=16^Notas=90.7;70.5;53.9|'
+                    + 'George=Turma=B^Idade=17^Notas=45.8;32.9;90.8|'
+                    + 'Gustavo=Turma=A^Idade=13^Notas=75.9;52.4;94.3|'
+                    + 'Paula=Turma=B^Idade=17^Notas=45.8;75.9;79.5');
+
+  // retirando o pipe principal
+  StrToLista(Lista_Separada,Lista_Principal[0],'|',true);
+
+  // CommaText com a lista separada - Pega os dados do aluno pelo nome/chave
+  Lista_Aluno.CommaText:= Lista_Separada[0]+','+Lista_Separada[1]+','+Lista_Separada[2]+','+Lista_Separada[3]+','+Lista_Separada[4];
+
+
+  //-------------- ANA----------
+  // Quebra a lista de valores com a chave escolhida
+  StrToLista(Lista_Dados,Lista_Aluno.Values['Ana'],'^',true);
+
+  // Recebe apenas o valor das turmas
+  Turma_Aluno:= Lista_Dados.Values['Turma'];
+
+  // Recebe e converte a idade
+  Idade_Aluno:= StrToInt(Lista_Dados.Values['Idade']);
+  Data_Hoje:=Now;
+  AnoNasc_Aluno:= StrToInt(FormatDateTime('yyyy', Data_Hoje)) - Idade_Aluno;
+
+  // Separa a célula com as notas
+  StrToLista(Lista_Notas,Lista_Dados.Values['Notas'],';',true);
+
+  // Seta o tamanho para o array
+  SetLength(Notas_Aluno,Lista_Notas.Count);
+
+  //Antes de converter para float, defina o separador decimal
+  DecimalSeparator:='.';
+
+  Notas_Aluno[0]:=StrToFloat(Lista_Notas[0]);
+  Notas_Aluno[1]:=StrToFloat(Lista_Notas[1]);
+  Notas_Aluno[2]:=StrToFloat(Lista_Notas[2]);
+
+  Media_Aluno:= (Notas_Aluno[0]+Notas_Aluno[1]+Notas_Aluno[2])/Length(Notas_Aluno);
+
+  // após converter  pode retornar o separador padrão
+  DecimalSeparator:=',';
+
+  ShowMessage('Notas Finais: ' + #13#13
+            + 'Nome do aluno: ' + Lista_Aluno.Names[0] + #13
+            + 'Ano Nascimento: ' + IntToStr(AnoNasc_Aluno) + #13
+            + 'Idade: ' + IntToStr(Idade_Aluno) + #13
+            + 'Turma: ' + Turma_Aluno + #13
+            + 'Notas: ' + #13
+            + FloatToStr(Notas_Aluno[0]) + #13
+            + FloatToStr(Notas_Aluno[1]) + #13
+            + FloatToStr(Notas_Aluno[2]) + #13
+            + 'Média Final: ' + FormatFloat('00.0', Media_Aluno));
+
+  Lista_Notas.Clear;
+  Lista_Dados.Clear;
+
+  //-------------- Carla ----------
+  StrToLista(Lista_Dados,Lista_Aluno.Values['Carla'],'^',true);
+
+  Turma_Aluno:= Lista_Dados.Values['Turma'];
+
+  Idade_Aluno:= StrToInt(Lista_Dados.Values['Idade']);
+
+  AnoNasc_Aluno:= StrToInt(FormatDateTime('yyyy', Data_Hoje)) - Idade_Aluno;
+
+  StrToLista(Lista_Notas,Lista_Dados.Values['Notas'],';',true);
+
+  SetLength(Notas_Aluno,Lista_Notas.Count);
+
+  DecimalSeparator:='.';
+
+  Notas_Aluno[0]:=StrToFloat(Lista_Notas[0]);
+  Notas_Aluno[1]:=StrToFloat(Lista_Notas[1]);
+  Notas_Aluno[2]:=StrToFloat(Lista_Notas[2]);
+
+  Media_Aluno:= (Notas_Aluno[0]+Notas_Aluno[1]+Notas_Aluno[2])/Length(Notas_Aluno);
+
+  DecimalSeparator:=',';
+
+  ShowMessage('Notas Finais: ' + #13#13
+            + 'Nome do aluno: ' + Lista_Aluno.Names[1] + #13
+            + 'Ano Nascimento: ' + IntToStr(AnoNasc_Aluno) + #13
+            + 'Idade: ' + IntToStr(Idade_Aluno) + #13
+            + 'Turma: ' + Turma_Aluno + #13
+            + 'Notas: ' + #13
+            + FloatToStr(Notas_Aluno[0]) + #13
+            + FloatToStr(Notas_Aluno[1]) + #13
+            + FloatToStr(Notas_Aluno[2]) + #13
+            + 'Média Final: ' + FormatFloat('00.0', Media_Aluno));
+
+  Lista_Notas.Clear;
+  Lista_Dados.Clear;
+
+  //-------------- George ----------
+  StrToLista(Lista_Dados,Lista_Aluno.Values['George'],'^',true);
+
+  Turma_Aluno:= Lista_Dados.Values['Turma'];
+
+  Idade_Aluno:= StrToInt(Lista_Dados.Values['Idade']);
+
+  AnoNasc_Aluno:= StrToInt(FormatDateTime('yyyy', Data_Hoje)) - Idade_Aluno;
+
+  StrToLista(Lista_Notas,Lista_Dados.Values['Notas'],';',true);
+
+  SetLength(Notas_Aluno,Lista_Notas.Count);
+
+  DecimalSeparator:='.';
+
+  Notas_Aluno[0]:=StrToFloat(Lista_Notas[0]);
+  Notas_Aluno[1]:=StrToFloat(Lista_Notas[1]);
+  Notas_Aluno[2]:=StrToFloat(Lista_Notas[2]);
+
+  Media_Aluno:= (Notas_Aluno[0]+Notas_Aluno[1]+Notas_Aluno[2])/Length(Notas_Aluno);
+
+  DecimalSeparator:=',';
+
+  ShowMessage('Notas Finais: ' + #13#13
+            + 'Nome do aluno: ' + Lista_Aluno.Names[2] + #13
+            + 'Ano Nascimento: ' + IntToStr(AnoNasc_Aluno) + #13
+            + 'Idade: ' + IntToStr(Idade_Aluno) + #13
+            + 'Turma: ' + Turma_Aluno + #13
+            + 'Notas: ' + #13
+            + FloatToStr(Notas_Aluno[0]) + #13
+            + FloatToStr(Notas_Aluno[1]) + #13
+            + FloatToStr(Notas_Aluno[2]) + #13
+            + 'Média Final: ' + FormatFloat('00.0', Media_Aluno));
+
+  Lista_Notas.Clear;
+  Lista_Dados.Clear;
+  
+  //-------------- Gustavo ----------
+  StrToLista(Lista_Dados,Lista_Aluno.Values['Gustavo'],'^',true);
+
+  Turma_Aluno:= Lista_Dados.Values['Turma'];
+
+  Idade_Aluno:= StrToInt(Lista_Dados.Values['Idade']);
+
+  AnoNasc_Aluno:= StrToInt(FormatDateTime('yyyy', Data_Hoje)) - Idade_Aluno;
+
+  StrToLista(Lista_Notas,Lista_Dados.Values['Notas'],';',true);
+
+  SetLength(Notas_Aluno,Lista_Notas.Count);
+
+  DecimalSeparator:='.';
+
+  Notas_Aluno[0]:=StrToFloat(Lista_Notas[0]);
+  Notas_Aluno[1]:=StrToFloat(Lista_Notas[1]);
+  Notas_Aluno[2]:=StrToFloat(Lista_Notas[2]);
+
+  Media_Aluno:= (Notas_Aluno[0]+Notas_Aluno[1]+Notas_Aluno[2])/Length(Notas_Aluno);
+
+  DecimalSeparator:=',';
+
+  ShowMessage('Notas Finais: ' + #13#13
+            + 'Nome do aluno: ' + Lista_Aluno.Names[3] + #13
+            + 'Ano Nascimento: ' + IntToStr(AnoNasc_Aluno) + #13
+            + 'Idade: ' + IntToStr(Idade_Aluno) + #13
+            + 'Turma: ' + Turma_Aluno + #13
+            + 'Notas: ' + #13
+            + FloatToStr(Notas_Aluno[0]) + #13
+            + FloatToStr(Notas_Aluno[1]) + #13
+            + FloatToStr(Notas_Aluno[2]) + #13
+            + 'Média Final: ' + FormatFloat('00.0', Media_Aluno));
+
+  Lista_Notas.Clear;
+  Lista_Dados.Clear;
+
+  //-------------- Paula ----------
+  StrToLista(Lista_Dados,Lista_Aluno.Values['Paula'],'^',true);
+
+  Turma_Aluno:= Lista_Dados.Values['Turma'];
+
+  Idade_Aluno:= StrToInt(Lista_Dados.Values['Idade']);
+
+  AnoNasc_Aluno:= StrToInt(FormatDateTime('yyyy', Data_Hoje)) - Idade_Aluno;
+
+  StrToLista(Lista_Notas,Lista_Dados.Values['Notas'],';',true);
+
+  SetLength(Notas_Aluno,Lista_Notas.Count);
+
+  DecimalSeparator:='.';
+
+  Notas_Aluno[0]:=StrToFloat(Lista_Notas[0]);
+  Notas_Aluno[1]:=StrToFloat(Lista_Notas[1]);
+  Notas_Aluno[2]:=StrToFloat(Lista_Notas[2]);
+
+  Media_Aluno:= (Notas_Aluno[0]+Notas_Aluno[1]+Notas_Aluno[2])/Length(Notas_Aluno);
+
+  DecimalSeparator:=',';
+
+  ShowMessage('Notas Finais: ' + #13#13
+            + 'Nome do aluno: ' + Lista_Aluno.Names[4] + #13
+            + 'Ano Nascimento: ' + IntToStr(AnoNasc_Aluno) + #13
+            + 'Idade: ' + IntToStr(Idade_Aluno) + #13
+            + 'Turma: ' + Turma_Aluno + #13
+            + 'Notas: ' + #13
+            + FloatToStr(Notas_Aluno[0]) + #13
+            + FloatToStr(Notas_Aluno[1]) + #13
+            + FloatToStr(Notas_Aluno[2]) + #13
+            + 'Média Final: ' + FormatFloat('00.0', Media_Aluno));
+
+  Lista_Notas.Clear;
+  Lista_Dados.Clear;
+end;
+
+end.
