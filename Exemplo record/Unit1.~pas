@@ -1,0 +1,80 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    GroupBox1: TGroupBox;
+    Ed_nome: TEdit;
+    Ed_idade: TEdit;
+    Button2: TButton;
+    Button3: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+type
+  TCliente = record
+    nome : string;
+    idade: integer;
+end;
+
+type
+  TFuncionario = record
+    nome : String;
+    idade: integer;
+    cpf : double;
+end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var umCliente:TCliente;
+begin
+  umCliente.nome :='MARIA';
+  umCliente.idade:=18;
+
+  ShowMessage(umCliente.nome);
+  ShowMessage(IntToStr(umCliente.idade));
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var UCliente:TCliente;
+begin
+  UCliente.nome:=Ed_nome.Text;
+  UCliente.idade:=StrToInt(Ed_idade.Text);
+
+  ShowMessage(UCliente.nome);
+  ShowMessage(IntToStr(UCliente.idade));
+end;
+
+
+
+procedure TForm1.Button3Click(Sender: TObject);
+var UFuncionario : Array[0..2] of TFuncionario;
+begin
+  UFuncionario[0].nome:='carla';
+  UFuncionario[1].idade:=23;
+  UFuncionario[2].cpf:=124154154.14;
+
+  ShowMessage(UFuncionario[0].nome);
+  ShowMessage(IntToStr(UFuncionario[1].idade));
+  ShowMessage(FloatToStr(UFuncionario[2].cpf));
+end;
+
+end.
